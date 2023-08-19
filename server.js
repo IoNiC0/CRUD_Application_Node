@@ -76,7 +76,7 @@ app.put('/items/:id', async (req, res) => {
       if (!updatedItem) {
         return res.status(404).json({ message: 'Item not found' });
       }
-      res.redirect('/items'); // Redirect to the items list after successful update
+      res.redirect('/items'); 
     } catch (error) {
       res.status(500).json({ error: error.message });
     }
