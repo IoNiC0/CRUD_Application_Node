@@ -8,7 +8,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 // MongoDB Atlas connection URI
-const dbURI = 'mongodb+srv://root:root@cluster0.untdeh4.mongodb.net/?retryWrites=true&w=majority';
+const dbURI = 'Your_MongoDB_URI';
 
 // Connect to MongoDB Atlas
 mongoose.connect(dbURI, {
