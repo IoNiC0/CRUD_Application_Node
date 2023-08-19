@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRUD App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+    h1, h2 {
+      color: #333;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    form {
+      margin-bottom: 20px;
+    }
+    label, input {
+      display: block;
+      margin-bottom: 10px;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    li {
+      background-color: #f9f9f9;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+    a {
+      text-decoration: none;
+      color: #007bff;
+      margin-right: 10px;
+    }
+    button {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+    <br><br>
+  <div class="container">
+    <h1>CRUD App</h1>
+
+    <h2>Create Item</h2>
+    <form action="/items" method="POST">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required autocomplete="off">
+      <label for="description">Description:</label>
+      <input type="text" id="description" name="description" required autocomplete="off">
+      <button type="submit">Create</button>
+    </form>
+
+    <h2>Items</h2>
+    <ul>
+      <% items.forEach(item => { %>
+        <li>
+          <strong>Name:</strong> <%= item.name %><br>
+          <strong>Description:</strong> <%= item.description %><br>
+          <a href="/items/<%= item._id %>/edit">Edit</a>
+          <form action="/items/<%= item._id %>?_method=DELETE" method="POST" style="display: inline-block;">
+            <button type="submit">Delete</button>
+          </form>
+        </li>
+      <% }) %>
+    </ul>
+  </div>
+</body>
+</html>
